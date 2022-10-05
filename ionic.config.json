@@ -1,0 +1,7 @@
+{
+  "name": "ionicFaf",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
