@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import { LoadingController, ToastController } from '@ionic/angular';
-import jsQR from 'jsqr';
+import jsQR from "jsqr";
 
 
 @Component({
@@ -69,7 +69,6 @@ this.canvasContext.drawImage(
 );
 const imagData = this.canvasContext.getImageData (
 
-  this.videoElement,
   0,
   0,
   this.canvasElement.width,
@@ -77,7 +76,7 @@ const imagData = this.canvasContext.getImageData (
 );
  
 const code =jsQR(imagData.data, imagData.width, imagData.height, {
-inversionAttempts: 'dontInvert'
+inversionAttempts: 'dontInvert',
 });
 console.log('code:',code);
 
