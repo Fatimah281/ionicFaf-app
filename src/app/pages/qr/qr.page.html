@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button ></ion-back-button>
+    </ion-buttons>
+    <ion-title>QR Scan</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true" color="light">
+
+  <div class="main-header"></div>
+
+  <ion-grid [style.visibility]="content_visibility" color="light" >
+   
+
+  <ion-row class="ion-margin-horizontal" style="align-content: center;">
+     
+ <!--QR code-->
+      <ion-col  size="6" style="align-content: center;">
+        <ion-card class="ion-text-center" >
+          <ion-card-content >
+            <ion-label color="dark">
+              <!-- <qrcode
+               [qrdata]="'qrCodeString'" 
+               [width]="200" 
+               [errorCorrectionLevel]="'M'"></qrcode> -->
+               <ion-button (click)="startScan()" expand="block" class="ion-margin" >Scan QR</ion-button>
+               <ion-button (click)="reset()" expand="block" class="ion-margin" *ngIf="scanndResult">Reset QR</ion-button>
+<video #video [hidden]="!scanActive" width="100%"></video>
+<canvas #canvas hidden></canvas>
+<ion-button (click)="stopScan()" expand="block" class="ion-margin"  *ngIf="scanActive">Close </ion-button>
+
+            </ion-label>
+          </ion-card-content>
+        </ion-card>
+        <ion-card *ngIf="scanndResult">
+        <ion-item >
+          <ion-label  class="ion-text-wrap" >Scanned QR Result: {{scanndResult}}</ion-label>
+        </ion-item>
+      </ion-card>
+      </ion-col>
+
+  
+    </ion-row> 
+    
+ 
+  </ion-grid>
+  
+</ion-content>
+
