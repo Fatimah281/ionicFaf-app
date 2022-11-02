@@ -45,6 +45,8 @@ inner();
   }
 
   getValue(key){
+    debugger;
+
     let options: GetOptions = {
       key: key
     }
@@ -57,6 +59,8 @@ inner();
   }
 
   deleteStorge(key){
+    debugger;
+
     let options : RemoveOptions ={
       key:key
     }
@@ -69,6 +73,8 @@ inner();
        })
 }
   getKeys(){
+    debugger;
+
     Preferences.keys().then((keys)=>{
      this.keys = keys.keys;
     })
@@ -76,6 +82,8 @@ inner();
   }
 
   clearAll(){
+    debugger;
+
     Preferences.clear().then(()=>{
      this.getKeys();
     })
@@ -84,6 +92,8 @@ inner();
 
 
 dismiss(){
+  debugger;
+
   this.modalCtrl.dismiss({inputText: this.inputText});
 
 }

@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 import { HttpClient} from '@angular/common/http'
 import { ModalController } from '@ionic/angular';
 import { RefePage } from '../refe/refe.page';
+import { browser } from 'protractor';
 
 const API_KEY = environment.API_KEY;
 const API_URL =environment.API_URL;
@@ -88,10 +89,20 @@ async getPicture(){
 
 
   async openBrowser(){
-    await Browser.open({ url: 'https://www.google.com/'
 
-  });
-}
+   await Browser.open({ url: 'https://capacitorjs.com/docs/apis/browser#open' });
+
+  //  Browser.addListener('browserFinished',()=> {
+  //       console.log("🚀 ~ file: home.page.ts ~ line 96 ~ HomePage ~ Browser.addListener ~ browserFinished");
+     
+  //    })
+    }
+  
+  
+  
+
+  
+
 
 async goToLocalStorge(){
   let modal = await this.modalCtrl.create({

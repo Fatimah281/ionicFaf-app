@@ -13,8 +13,11 @@ export class AppComponent {
     ) {}
 
   logout(){
+
     this.router.navigate(['login']);
-    this.menu.close()
+    this.menu.close();
+    this.menu.enable(false);
+    
 
   }
 }
