@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar >
+    <ion-title>Prefrences</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" color="dark" (click)="dismiss()" >
+      <ion-icon slot="icon-only" name="close"></ion-icon>
+    </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="light">
+ 
+  <div class="main-header"></div>
+
+  <ion-grid >
+   
+
+  <ion-row class="ion-margin-horizontal" style="align-content: center;">
+     
+      <ion-col  size="6" style="align-content: center;">
+        <ion-card class="ion-text-center" >
+          <ion-card-content >
+            
+            <ion-text *ngIf="text" >
+              <!--show text-->
+            <b color="dark">{{text}}</b>  
+            </ion-text>    
+
+
+<ion-list>
+  <ion-list-header *ngIf="keys.length > 0" >
+     KEYS
+  </ion-list-header>
+    <ion-item *ngFor="let key of keys">
+    <ion-label>
+      <b>{{key}}</b>
+    </ion-label>
+    <ion-button size="small" (click)="getValue(Key)" >View</ion-button>
+    <ion-button size="small" (click)="deleteStorge(Key)" >Delete</ion-button>
+  </ion-item>
+</ion-list>
+<!-- 
+<ion-button size="50%" (click)="ngOnInit()" expand="center" class="ion-margin" >Add to Storge</ion-button>
+<ion-button size="50%" (click)="getDataFromStorge()" expand="center" class="ion-margin" >getDataFromStorge</ion-button>
+<ion-button size="50%" (click)="getData()" expand="center" class="ion-margin" >getData</ion-button>
+<ion-button size="50%" (click)="removeData()" expand="center" class="ion-margin" >removeData</ion-button>
+<ion-button size="50%" (click)="clearData()" expand="center" class="ion-margin" >clear data</ion-button> -->
+
+
+          </ion-card-content>
+          <ion-label color="dark" >
+            <ion-button size="50%" (click)="clearAll()" expand="center" class="ion-margin" >Clear All Keys</ion-button>
+          </ion-label>
+        </ion-card>
+      </ion-col>
+    </ion-row> 
+<ion-row class="ion-margin-horizontal" style="align-content: center;">
+  <ion-col size="6" style="align-content: center;">
+    <ion-card  class="ion-text-center">
+      <ion-card-content>
+        <ion-item>
+          <ion-label>enter text here</ion-label>
+          <ion-input type="text" [(ngModel)]="inputText"></ion-input>
+
+        </ion-item>
+      </ion-card-content>
+      
+    </ion-card>
+  </ion-col>
+</ion-row>
+  </ion-grid>
+  
+</ion-content>
+
+

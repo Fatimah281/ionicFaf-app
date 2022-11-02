@@ -7,6 +7,8 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,7 +16,8 @@ import { BarcodeScanner } from '@awesome-cordova-plugins/barcode-scanner/ngx';
   imports: [BrowserModule,
      IonicModule.forRoot(), 
      AppRoutingModule,
-    // AnguliarFireModule.Ini
+     HttpClientModule,
+     FormsModule,
     ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     BarcodeScanner],

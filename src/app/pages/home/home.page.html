@@ -12,31 +12,57 @@
 <ion-content [fullscreen]="true" color="light">
 
   <div class="main-header"></div>
+  <ion-grid >
 
-  <ion-grid>
-    <ion-row>
+    <ion-row class="ion-margin-horizontal" >
+
+      
       <ion-col size="6">
-        <ion-text color="dark" class="ion-margin-start">
-          Welcoe to my first ionic app  
-          </ion-text>
-        <ion-label>
-        
-          <p> 
-            <ion-chip color="dark">
-              <ion-label class="ion-text-wrap" >
-                
-Fatimah Alhamawi
+        <ion-card class="ion-text-center" (click)="loadData()">
+          <ion-card-header>  
+            <ion-item>
+              <ion-label class="ion-text-center" >
+                     {{toDayDate |date:"EEE dd MMM"}}
+                     <ion-label slot="start">
+                      {{(weatherTemp?.temp - 273.15).toFixed(0)}}
+               </ion-label>
               </ion-label>
-            </ion-chip>
-          </p>
-          <ion-note color="dark" class="ion-margin-start">
-20.sep.2022            </ion-note>
-        </ion-label>
+              
+        
+            </ion-item>  
+          </ion-card-header>
+          <ion-card-content>
+            <ion-label color="dark">
+                <ion-icon name="location"> </ion-icon>
+                <span>{{cityName}}</span>
+            </ion-label>
+            <!-- <img slod="end" src="weatherIcon.com"> -->
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-card class="ion-text-center" >
+          
+          <ion-card-content>
+          
+             <ion-text size="60">Local Storge</ion-text> 
+            <ion-button expand="block" class="ion-margin" (click)="goToLocalStorge()" >Local Storge</ion-button>
+
+          </ion-card-content>
+        </ion-card>
+        
       </ion-col>
     </ion-row>
 
 
-    <ion-row class="ion-margin-horizontal">
+
+
+
+
+   
+
+   <ion-row class="ion-margin-horizontal">
       <!--Camear-->
       <ion-col  size="6">
         <ion-card class="ion-text-center" >
@@ -55,7 +81,6 @@ Fatimah Alhamawi
           </ion-card-content>
         </ion-card>
       </ion-col>
-
 
 <!--Share-->
       <ion-col  size="6">
@@ -100,7 +125,48 @@ Fatimah Alhamawi
   </ion-card>
 </ion-col>
 
- <!--Google map-->
+ <!--Bar code-->
+      <ion-col  size="6">
+        <ion-card class="ion-text-center" >
+          <ion-card-header>  
+            <div align="center">
+              <ion-thumbnail >
+                <img  src='assets/icon/bar.jpg' />
+              </ion-thumbnail>
+            </div>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-label color="dark">
+              <ion-button (click)="toBarCode()" expand="block" class="ion-margin" >Bar code</ion-button>
+
+            </ion-label>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+    </ion-row> 
+    
+ 
+    <ion-row class="ion-margin-horizontal">
+      <!--browser-->
+      <ion-col  size="6">
+        <ion-card class="ion-text-center" >
+          <ion-card-header>
+            <div align="center">
+              <ion-thumbnail >
+                <img src='assets/icon/search.jpg' />
+              </ion-thumbnail>
+            </div>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-label color="dark">
+              <ion-button (click)="openBrowser()" expand="block" class="ion-margin" >Search on browser</ion-button>
+            </ion-label>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+<!--Google map-->
       <ion-col  size="6">
         <ion-card class="ion-text-center" >
           <ion-card-header>
@@ -118,29 +184,8 @@ Fatimah Alhamawi
           </ion-card-content>
         </ion-card>
       </ion-col>
-    </ion-row> 
-    
- 
-    <ion-row class="ion-margin-horizontal">
-      <!--browser-->
-      <ion-col  size="12">
-        <ion-card class="ion-text-center" >
-          <ion-card-header>
-            <div align="center">
-              <ion-thumbnail >
-                <img src='assets/icon/search.jpg' />
-              </ion-thumbnail>
-            </div>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-label color="dark">
-              <ion-button (click)="openBrowser()" expand="block" class="ion-margin" >Search on browser</ion-button>
-            </ion-label>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
 
-
+   
     </ion-row>
 
   </ion-grid>

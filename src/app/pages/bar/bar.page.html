@@ -1,0 +1,90 @@
+<ion-header [hidden]="scanActive">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button ></ion-back-button>
+    </ion-buttons>
+    <ion-title>Barcode Scan</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+<ion-content [style.--background]="scanActive ? '#00000000' : '#fff'">
+  <ion-button (click)="startScanner()" expand="full"  [hidden]="scanActive">
+    Start Scan 
+  </ion-button>
+
+  <p class="ion-text-center" *ngIf="result && !scanActive">{{result}}</p>
+
+  <ion-row class="scanner-buttons" [hidden]="!scanActive">
+    <ion-col class="ion-no-padding">
+      <ion-button (click)="stopScanner()" expand="full" >Stop </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <div class="scan-box" [hidden]="!scanActive"></div>
+</ion-content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <ion-content [fullscreen]="true" color="light">
+
+  <div class="main-header"></div>
+
+  <ion-grid>
+   
+
+  <ion-row class="ion-margin-horizontal" style="align-content: center;">
+      -->
+ <!--bar code-->
+      <!-- <ion-col  size="6" style="align-content: center;">
+        <ion-card class="ion-text-center" >
+          <ion-card-content >
+            <ion-label color="dark">
+
+
+              <ion-label   [style.--background]="scanActive ? '#00000000' : '#fff'">
+
+                <ion-button (click)="startScanner()" expand="full"  [hidden]="scanActive">
+                 <ion-icon name="scan" slot="start"></ion-icon>
+                 Start Scan 
+               </ion-button>
+ <p class="ion-text-center" *ngIf="result && !scanActive">{{result}}</p>
+                
+ <ion-row class="scanner-buttons" [hidden]="!scanActive">
+   <ion-col class="ion-no-padding">
+     <ion-button (click)="stopScanner()" expand="full"  >Stop </ion-button>
+   </ion-col>
+ </ion-row>
+ 
+           
+       <div class="scan-box" [hidden]="!scanActive"></div>
+   
+ </ion-label>
+
+ </ion-label>
+          </ion-card-content>
+        </ion-card>
+        <ion-card >
+       
+      </ion-card>
+      </ion-col>
+
+  
+    </ion-row> 
+    
+ 
+  </ion-grid>
+  
+</ion-content> -->

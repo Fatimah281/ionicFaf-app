@@ -6,7 +6,8 @@ import { GoogleMap } from '@capacitor/google-maps';
 export const environment = {
   production: false,
   apiKey : 'AIzaSyA-IsPshHTj2ror95zlHj4izYkq8k8hkPc',
-
+  API_KEY : 'c4426bfd7a3ca76d7c50d1f6192ebe10 ',
+  API_URL : 'https://api.openweathermap.org/data/2.5/',
 };
 
 /*
