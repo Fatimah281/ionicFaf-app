@@ -31,7 +31,7 @@ export class MapPage implements OnInit {
       this.newMap = await GoogleMap.create({
         id: 'my-cool-map',
         element: this.mapRef.nativeElement,
-        apiKey: environment.apiKey,
+        apiKey: environment.API_KEY,
         config: {
           center: this.center,
           zoom: 13,
