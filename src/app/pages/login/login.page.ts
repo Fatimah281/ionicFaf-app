@@ -12,10 +12,12 @@ import { Plugins } from 'protractor/built/plugins';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+
   form:FormGroup;
   constructor( private router: Router, private formBuilder: FormBuilder) { }
   
  async ngOnInit() {
+  // debugger;
     this.form= new LoginPageForm(this.formBuilder).createForm();
     await LocalNotifications.requestPermissions();
   }

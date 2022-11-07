@@ -6,18 +6,22 @@ import { Share } from '@capacitor/share';
 import { Browser } from '@capacitor/browser';
 import { environment } from 'src/environments/environment';
 import { HttpClient} from '@angular/common/http'
-import { ModalController } from '@ionic/angular';
+import { IonSelectOption, ModalController, Platform } from '@ionic/angular';
 import { RefePage } from '../refe/refe.page';
 import { browser } from 'protractor';
+import { title } from 'process';
+import { Title } from '@angular/platform-browser';
+import { CapacitorConfig } from '@capacitor/cli';
+import { LocalNotifications, LocalNotificationSchema } from '@capacitor/local-notifications';
 
-const API_KEY = environment.API_KEY;
+const API_KEY = environment.apiKey;
 const API_URL =environment.API_URL;
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
-export class HomePage  {
+export class HomePage implements OnInit {
   weatherTemp : any;
   toDayDate = new Date();
   cityName :any;
@@ -25,9 +29,42 @@ export class HomePage  {
   weatherDetails: any;
   selectedImage: any;
 
-  constructor( private router: Router, public httpClint: HttpClient, private modalCtrl: ModalController) { }
+  constructor( private router: Router
+    ,private platform:Platform,
+     public httpClint: HttpClient, private modalCtrl: ModalController,) { }
+ ngOnInit() { 
+
+  this.noti();
+  this.platform.resume.subscribe(()=>{
+    console.log('hi');
+  });
+ 
 
  
+ }
+//   // debugger;
+//   this.simpleNotif();
+// }
+ 
+// async simpleNotif() {
+
+
+//   let options : LocalNotificationSchema ={
+//     body: 'hi u',
+//     title: '',
+//     id: 0
+//   }
+ async noti (){
+ await LocalNotifications.schedule({notifications:[{
+  title: "ttttt",
+        body: "yyuuuuyy",
+        id: 1,
+      
+ }]})
+  }
+
+
+  
 
   loadData() {
     this.httpClint.get(`${API_URL}/weather?q=${"Jeddah"}&appid=${API_KEY}`).subscribe(results =>{
@@ -89,13 +126,16 @@ async getPicture(){
 
 
   async openBrowser(){
+   await Browser.open({ url: 'https://www.iam.gov.sa/authservice//userauthservice?lang=ar', windowName:'valll',presentationStyle: 'fullscreen', width:50, height:60,  })
+   ;
 
-   await Browser.open({ url: 'https://capacitorjs.com/docs/apis/browser#open' });
+  //  let inAppBrw ;
+  //  if(inAppBrw){
+  //   await Browser.open({ url: 'https://www.iam.gov.sa/authservice//userauthservice?lang=ar', windowName:'valll',presentationStyle: 'fullscreen', width:50, height:60,  })
+  //  } else()=>{
+  //    Browser.close();
 
-  //  Browser.addListener('browserFinished',()=> {
-  //       console.log("🚀 ~ file: home.page.ts ~ line 96 ~ HomePage ~ Browser.addListener ~ browserFinished");
-     
-  //    })
+  //  }
     }
   
   

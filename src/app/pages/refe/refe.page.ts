@@ -16,7 +16,6 @@ keys = [];
 //storge data
   ngOnInit() {}
   ionViewDidEnter(){
-    debugger;
     Preferences.clear().then(()=>{
 
       let i=0;
@@ -33,7 +32,7 @@ keys = [];
         }
         Preferences.set(options).then(()=>{
           i++;
-          if(i<4){ 
+          if(i<1){ 
             inner();
           }else{ 
             ref.getKeys();
@@ -45,10 +44,11 @@ inner();
   }
 
   getValue(key){
+    // console.log(key)
     debugger;
 
     let options: GetOptions = {
-      key: key
+      key:key
     }
      Preferences.get(options).then((val)=>{
       
@@ -73,7 +73,6 @@ inner();
        })
 }
   getKeys(){
-    debugger;
 
     Preferences.keys().then((keys)=>{
      this.keys = keys.keys;
@@ -92,7 +91,6 @@ inner();
 
 
 dismiss(){
-  debugger;
 
   this.modalCtrl.dismiss({inputText: this.inputText});
 

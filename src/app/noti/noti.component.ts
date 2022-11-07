@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalNotificationSchema } from '@capacitor/local-notifications';
 
 @Component({
   selector: 'app-noti',
@@ -9,6 +10,18 @@ export class NotiComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
-
-}
+  ngOnInit() {
+    // debugger;
+    this.simpleNotif();
+  }
+   
+  async simpleNotif() {
+  
+  
+    let options : LocalNotificationSchema ={
+      body: 'hi u',
+      title: '',
+      id: 0
+    }
+  }}
+  
