@@ -1,18 +1,26 @@
 package io.ionic.starter;
 
+import android.os.Bundle;
+
 import com.getcapacitor.BridgeActivity;
-import com.dutchoconcepts.capacitor.BarcodeScanner;
+import com.getcapacitor.Plugin;
+import com.getcapacitor.community.barcodescanner.BarcodeScanner;
+
+import java.util.ArrayList;
 
 public class MainActivity extends BridgeActivity {
-@Override
-public void onCreate (Bundle savedInstanceState){
-super.onCreate(savedInstanceState);
+//
+// @Override
+//public void onCreate (Bundle savedInstanceState){
+//
+//super.onCreate(savedInstanceState);
+//
+////bridge
+//
+//  this.init(savedInstanceState, new ArrayList<Class<? extends Plugin>>() {{
+//    add(BarcodeScanner.class);
+//
+//}});
 
-//bridge
-this.init(savedInstanceState, new ArrayList<Class<? extends Plugin>>() {{
-    add(BarcodeScanner.class);
-
-}});
-}
 
 }

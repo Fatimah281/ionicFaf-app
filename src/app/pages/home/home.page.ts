@@ -56,8 +56,8 @@ export class HomePage implements OnInit {
 //   }
  async noti (){
  await LocalNotifications.schedule({notifications:[{
-  title: "ttttt",
-        body: "yyuuuuyy",
+  title: "Welcome",
+        body: "Welcome to our App :)",
         id: 1,
       
  }]})
